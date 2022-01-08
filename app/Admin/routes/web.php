@@ -1,6 +1,6 @@
 <?php
 
-use App\Admin\Http\Controllers\VueController;
+use App\Admin\Http\Controllers\Web\VueController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [VueController::class, 'index']);
