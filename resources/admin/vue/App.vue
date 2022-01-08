@@ -24,7 +24,6 @@ export default {
 
   computed: {
     layout() {
-        console.log(this.$router.currentRoute.name)
       if (["notFound", "login"].includes(this.$router.currentRoute.name)) {
         return "layout-login";
       }
