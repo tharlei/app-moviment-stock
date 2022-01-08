@@ -1,12 +1,12 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run web-dev & npm run admin-dev",
-        "web-dev": "npm --section=web run watch",
+        "dev": "npm run core-dev & npm run admin-dev",
+        "core-dev": "npm --section=core run watch",
         "admin-dev": "npm --section=admin run watch",
         "watch": "mix watch",
-        "prod": "npm run web-prod & npm run admin-prod",
-        "web-prod": "npm --section=web run production",
+        "prod": "npm run core-prod & npm run admin-prod",
+        "core-prod": "npm --section=core run production",
         "admin-prod": "npm --section=admin run production",
         "production": "mix --production"
     },

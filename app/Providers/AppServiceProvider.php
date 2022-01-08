@@ -27,8 +27,8 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('pt_BR');
 
         $this->loadViewsFrom(
-            base_path('resources/web/views'),
-            'web'
+            base_path('resources/core/views'),
+            'core'
         );
 
         $this->loadViewsFrom(
