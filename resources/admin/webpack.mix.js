@@ -1,9 +1,10 @@
 require('laravel-mix-merge-manifest')
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+const section = process.env.npm_config_section
 
 const srcPath = __dirname
-const outPath = `public/assets/admin`
+const outPath = `public/assets/${section}`
 
 mix.autoload({})
     .copy(`${srcPath}/images`, `${outPath}/images`)
