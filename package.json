@@ -1,18 +1,41 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
+        "dev": "npm run web-dev & npm run admin-dev",
+        "web-dev": "npm --section=web run watch",
+        "admin-dev": "npm --section=admin run watch",
         "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
+        "prod": "npm run web-prod & npm run admin-prod",
+        "web-prod": "npm --section=web run production",
+        "admin-prod": "npm --section=admin run production",
         "production": "mix --production"
     },
     "devDependencies": {
+        "autoprefixer": "^10.3.4",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
+        "laravel-mix-merge-manifest": "^2.0.0",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.3.6",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "1.32.13",
+        "sass-loader": "^11.0.1",
+        "tailwindcss": "^2.2.15",
+        "ts-loader": "^9.2.6",
+        "typescript": "^4.4.4",
+        "vue": "^2.6.12",
+        "vue-loader": "^15.9.8",
+        "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "pure-svg-code": "^1.0.6",
+        "sweetalert2": "^11.1.9",
+        "vue-router": "^3.5.2",
+        "vue-sweetalert2": "^5.0.2",
+        "vue-the-mask": "^0.11.1",
+        "vuetify": "^2.5.10",
+        "vuex": "^3.6.2",
+        "vuex-persistedstate": "^4.1.0"
     }
 }
