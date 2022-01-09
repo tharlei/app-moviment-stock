@@ -16,9 +16,15 @@ class FindProductWithSku implements FindProductWithSkuQuery
         $this->productModel = $productModel;
     }
 
-    public function execute(string $sku): ?FindProductWithSkuData
+    public function execute(string $sku, ?string $removeId = null): ?FindProductWithSkuData
     {
-        $product = $this->productModel->where('sku', $sku)->first();
+        $product = $this->productModel->where('sku', $sku);
+
+        if (!empty($removeId)) {
+            $product->where('id', '<>', $removeId);
+        }
+
+        $product = $product->first();
 
         if (empty($product)) {
             return null;
