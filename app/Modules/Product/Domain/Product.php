@@ -2,6 +2,8 @@
 
 namespace App\Modules\Product\Domain;
 
+use RuntimeException;
+
 final class Product
 {
     private string $id;
@@ -19,7 +21,7 @@ final class Product
         $this->id = $id;
         $this->name = $name;
         $this->sku = $sku;
-        $this->amount = $amount;
+        $this->setAmount($amount);
     }
 
     public function getId(): string
@@ -42,18 +44,22 @@ final class Product
         return $this->sku;
     }
 
+    public function setSku(string $sku): void
+    {
+        $this->sku = $sku;
+    }
+
     public function getAmount(): string
     {
         return $this->amount;
     }
 
-    public function addStock(int $amount): void
+    public function setAmount(int $amount): void
     {
-        $this->amount += $amount;
-    }
+        if ($amount < 0) {
+            throw new RuntimeException('Estoque mínimo para produto é 0');
+        }
 
-    public function subtractStock(int $amount): void
-    {
-        $this->amount -= $amount;
+        $this->amount = $amount;
     }
 }

@@ -7,4 +7,5 @@ use App\Modules\Product\Domain\Product;
 interface ProductRepository
 {
     public function persist(Product $product): void;
+    public function find(string $id): ?Product;
 }
