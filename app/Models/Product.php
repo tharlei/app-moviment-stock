@@ -18,4 +18,11 @@ class Product extends Model
         'sku',
         'amount',
     ];
+
+    protected $casts = [
+        "id" => "string",
+        "name" => "string",
+        "sku" => "string",
+        "amount" => "int",
+    ];
 }
