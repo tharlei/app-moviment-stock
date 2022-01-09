@@ -1,44 +1,41 @@
 <?php
 
-namespace App\Modules\Product\Actions\Create;
+namespace App\Modules\Product\Actions\Update;
 
-use App\Modules\Product\Domain\ProductFactory;
+use App\Modules\Product\Domain\Product;
 use App\Modules\Product\ProductRepository;
 use App\Modules\Product\Queries\FindProductWithSku\FindProductWithSkuQuery;
 use RuntimeException;
 
-class CreateProductAction
+class UpdateProductAction
 {
-    private ProductFactory $productFactory;
     private ProductRepository $productRepository;
     private FindProductWithSkuQuery $findProductWithSkuQuery;
 
     public function __construct(
-        ProductFactory $productFactory,
         ProductRepository $productRepository,
         FindProductWithSkuQuery $findProductWithSkuQuery
     ) {
-        $this->productFactory = $productFactory;
         $this->productRepository = $productRepository;
         $this->findProductWithSkuQuery = $findProductWithSkuQuery;
     }
 
-    public function execute(CreateProductInput $data): void
+    public function execute(UpdateProductInput $data): void
     {
-        $product = $this->productFactory->new(
-            $data->name,
-            $data->sku,
-            $data->amount,
-        );
+        $product = $this->productRepository->find($data->id);
 
-        $this->willOverlapSkuProduct($product->getSku());
+        $product->setName($data->name);
+        $product->setSku($data->sku);
+        $product->setAmount($data->amount);
+
+        $this->willOverlapSkuProduct($product);
 
         $this->productRepository->persist($product);
     }
 
-    private function willOverlapSkuProduct(string $sku): void
+    private function willOverlapSkuProduct(Product $product): void
     {
-        $product = $this->findProductWithSkuQuery->execute($sku);
+        $product = $this->findProductWithSkuQuery->execute($product->getSku(), $product->getId());
 
         if (!empty($product)) {
             throw new RuntimeException('SKU já cadastrado');
