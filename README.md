@@ -1,17 +1,16 @@
 <p align="center">
- <img width="250" src="https://lp.appmax.com.br/Yampi/images/logo-appmax.png"/>
+ <img width="250" src="https://i.imgur.com/x9gfv2e.png"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D
-"/>
+  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D"/>
   <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"/>
   <img src="https://img.shields.io/badge/Digital Ocean-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
 </p>
 
-> Status do Projeto: :computer: (andamento)
+> Status do Projeto: :heavy_check_mark: (concluido)
 
 ### Tópicos 
 
@@ -51,7 +50,7 @@
 
 :warning: [Node:^14](https://nodejs.org/en/download/)
 
-:warning: [MySQL](https://nodejs.org/en/download/)
+:warning: [MySQL](https://hub.docker.com/_/mysql)
 
 
 ## Como rodar a aplicação :arrow_forward:
@@ -90,6 +89,12 @@ Execute as migrations:
 
 ```
 php artisan migrate
+```
+
+De permissão as pastas:
+
+```
+sudo chgrp -R www-data storage bootstrap/cache && sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
 Instale as dependências Javascript:
