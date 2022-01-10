@@ -2,5 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
-@import '~sweetalert2/dist/sweetalert2.min.css';
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~sweetalert2/dist/sweetalert2.min.css";
+
+.pagination {
+    @apply flex justify-center py-4 my-4;
+}
+
+.v-application a.page-link {
+    @apply text-white;
+}
+
+.page-link {
+    @apply cursor-pointer px-3 py-2 bg-gray rounded hover:border-blue hover:bg-opacity-70 hover:bg-blue text-white duration-300 transition-colors mx-2 shadow-xl;
+}
+.active > .page-link {
+    @apply bg-purple border-purple cursor-default;
+}
+
+@media screen and (max-width: 1024px) {
+    .page-item {
+        @apply hidden;
+    }
+
+    .page-item:first-child,
+    .page-item:nth-child(2),
+    .page-item:nth-last-child(2),
+    .page-item:last-child,
+    .page-item.active,
+    .page-item.disabled {
+        @apply block;
+    }
+}

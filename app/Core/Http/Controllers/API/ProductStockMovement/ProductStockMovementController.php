@@ -8,6 +8,7 @@ use App\Modules\ProductStockMovement\Actions\Create\CreateProductStockMovementIn
 use App\Modules\ProductStockMovement\Queries\ListStockMovement\ListStockMovementQuery;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -26,9 +27,11 @@ class ProductStockMovementController extends Controller
         $this->createProductStockMovementAction = $createProductStockMovementAction;
     }
 
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $movements = $this->listStockMovementQuery->execute();
+        $movements = $this->listStockMovementQuery->execute(
+            $request->get('paginator', false)
+        );
 
         return response()->json($movements, 200);
     }

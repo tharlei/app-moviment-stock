@@ -1,17 +1,16 @@
 <p align="center">
- <img width="250" src="https://lp.appmax.com.br/Yampi/images/logo-appmax.png"/>
+ <img width="250" src="https://i.imgur.com/x9gfv2e.png"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D
-"/>
+  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D"/>
   <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"/>
   <img src="https://img.shields.io/badge/Digital Ocean-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
 </p>
 
-> Status do Projeto: :computer: (andamento)
+> Status do Projeto: :heavy_check_mark: (concluido)
 
 ### Tópicos 
 
@@ -19,9 +18,20 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+:small_blue_diamond: [Deploy da Aplicação :dash:](#deploy-da-aplicacao-dash)
+
+:small_blue_diamond: [Documentação](#documentação)
 
 :small_blue_diamond: [Pré-requisitos](#pré-requisitos)
+
+:small_blue_diamond: [Como rodar a aplicação :arrow_forward:](#como-rodar-a-aplicacao)
+
+:small_blue_diamond: [Linguagens, dependências e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas-books)
+
+:small_blue_diamond: [Desenvolvedor :octocat:](#desenvolvedor)
+
+:small_blue_diamond: [Licença](#licenca)
+
 
 ## Descrição do projeto 
 
@@ -43,6 +53,10 @@
 
 > Link do deploy da aplicação: https://app-ce4b9bea.tk
 
+## Documentação
+
+> Documentação no Postman: https://documenter.getpostman.com/view/4827382/UVXesxvU
+
 ## Pré-requisitos
 
 :warning: [PHP:^7.4](https://www.php.net/releases/7_4_0.php)
@@ -51,7 +65,7 @@
 
 :warning: [Node:^14](https://nodejs.org/en/download/)
 
-:warning: [MySQL](https://nodejs.org/en/download/)
+:warning: [MySQL](https://hub.docker.com/_/mysql)
 
 
 ## Como rodar a aplicação :arrow_forward:
@@ -90,6 +104,12 @@ Execute as migrations:
 
 ```
 php artisan migrate
+```
+
+De permissão as pastas:
+
+```
+sudo chgrp -R www-data storage bootstrap/cache && sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
 Instale as dependências Javascript:

@@ -1,27 +1,49 @@
 <template>
-  <div class="h-screen overflow-hidden overflow-y-hidden container-login bg-gray text-white">
-    <v-row class="content-login">
+  <div
+    class="
+      h-screen
+      overflow-hidden overflow-y-hidden
+      container-login
+      bg-gray
+      text-white
+    "
+  >
+    <v-row class="flex justify-center items-center">
       <v-col md="4" lg="7" class="hidden lg:block">
-        <div id="background" class="h-screen">
-          <h2>Bem vindo</h2>
+        <div
+          id="background"
+          class="
+            h-screen
+            bg-cover
+            flex
+            justify-center
+            items-center
+            flex-col
+            w-full
+            relative
+          "
+        >
+          <h2 class="text-white z-50 text-5xl">Bem vindo</h2>
 
-          <p>Insira seus dados e faça login no gerencial</p>
+          <p class="mt-10 text-white opacity-80 z-50 text-base">
+            Insira seus dados e faça login no gerencial
+          </p>
         </div>
       </v-col>
 
       <v-col cols="12" xs="12" sm="12" md="4" lg="5">
         <div class="container login-container">
-          <div class="flex justify-center wrapper-image-container">
-            <img src="/assets/admin/images/logo.png" alt="Logo" class="w-36" />
+          <div class="flex justify-center">
+            <img src="/assets/admin/images/logo.png" alt="Logo" class="w-40" />
           </div>
 
           <v-form ref="form">
-            <div class="p-8 lg:p-24">
+            <div class="p-8 lg:px-28 lg:py-16">
               <v-text-field
                 :rules="[(v) => !!v || 'E-mail obrigatório']"
                 outlined
                 v-model="user.email"
-                label="Email"
+                label="E-mail"
                 type="email"
                 required
               ></v-text-field>
@@ -40,17 +62,9 @@
             </div>
 
             <div class="flex justify-center">
-              <v-btn
-                :loading="loading"
-                :disabled="loading"
-                @click="handleSubmit"
-              >
-                Entrar
-                <template v-slot:loader>
-                  <span class="custom-loader">
-                    <v-icon light>cached</v-icon>
-                  </span>
-                </template>
+              <v-btn :disabled="loading" @click="handleSubmit">
+                <span v-if="!loading">Entrar</span>
+                <i v-else class="text-xl fas fa-spinner fa-pulse"></i>
               </v-btn>
             </div>
           </v-form>
@@ -82,7 +96,7 @@ export default {
       this.loading = true;
 
       try {
-        this.$router.push("/admin");
+        location.href = "/admin";
       } catch (error) {
         console.log(error);
         this.loading = false;
@@ -94,63 +108,29 @@ export default {
 
 <style scoped>
 .theme--light.v-btn.v-btn--has-bg {
-    @apply bg-blue text-white;
+  @apply bg-blue text-white;
 }
-.wrapper-image-container img {
-  width: 150px;
-}
-
-.content-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 
 #background {
-  position: relative;
-  width: 100%;
-  height: 100vh;
   background: url("/assets/admin/images/bg.jpeg") no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 #background::before {
+  @apply absolute top-0 left-0 right-0 bottom-0 opacity-60 bg-purple;
   content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(188, 149, 251, 0.6);
-}
-
-.left-side {
-  padding: 0px;
 }
 
 #background h2 {
-  color: #fff !important;
-  z-index: 999;
-  font-size: 50px;
+  line-height: 1.5;
   border-bottom: 0.5px solid #fff;
 }
 
-#background p {
-  margin-top: 40px;
-  color: #fafafa !important;
-  opacity: 0.8;
-  font-size: 16px;
-  z-index: 999;
+.v-text-field--outlined >>> fieldset {
+  @apply border-white;
 }
 
-@media (max-width: 600px) {
-  .wrapper-btn-login {
-    margin-top: 10px;
-  }
+.v-text-field--outlined >>> input,
+.v-text-field--outlined >>> label {
+  @apply text-white;
 }
 </style>

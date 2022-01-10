@@ -27,6 +27,7 @@ class ListStockMovementOfSku implements ListStockMovementOfSkuQuery
 
         return $productStockMovements->map(function(ProductStockMovementModel $productStockMovement) {
             return new StockMovementData(
+                $productStockMovement->sku,
                 $productStockMovement->amount,
                 $productStockMovement->is_add ? '+' : '-',
                 (new Carbon($productStockMovement->created_at))->format('d/m/Y H:i:s')

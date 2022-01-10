@@ -38,9 +38,20 @@ export default {
           redirect: "/",
         },
         {
-          icon: "fas fa-tag",
-          title: "Categorias",
-          redirect: "/categorias",
+          icon: "fas fa-plus",
+          title: "Cadastrar produto",
+          redirect: "/produtos/cadastrar",
+        },
+        {
+          icon: "fas fa-history",
+          title: "Movimentos de estoque",
+          redirect: "/movimentos/estoque",
+        },
+
+        {
+          icon: "fas fa-box",
+          title: "Movimentar estoque",
+          redirect: "/movimentar/estoque",
         },
       ],
     };
@@ -48,14 +59,20 @@ export default {
 
   methods: {
     handleRedirect(route) {
-      this.$router.push(`/admin/${route}`).catch((err) => {});
+      this.$router.push(`/admin${route}`).catch((err) => {});
     },
   },
 
   computed: {
     ...mapState({
-      getMenu: state => state.menu,
+      getMenu: (state) => state.menu,
     }),
   },
 };
 </script>
+
+<style scoped>
+.theme--dark.v-navigation-drawer {
+  @apply bg-gray;
+}
+</style>

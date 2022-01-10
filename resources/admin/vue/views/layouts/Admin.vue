@@ -2,7 +2,7 @@
   <div>
     <menu-admin />
 
-    <v-app-bar app :color="$vuetify.theme.themes.light.primary" dark>
+    <v-app-bar app dark>
       <i
         @click.stop="setMenu"
         class="cursor-pointer text-lg fas fa-bars"
@@ -41,7 +41,7 @@
     </v-app-bar>
 
     <v-main>
-      <v-container fluid style="display: flex">
+      <v-container fluid class="flex">
         <v-row class="container">
           <router-view></router-view>
         </v-row>
@@ -80,3 +80,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.theme--dark.v-app-bar.v-toolbar.v-sheet {
+    @apply bg-purple;
+}
+</style>
