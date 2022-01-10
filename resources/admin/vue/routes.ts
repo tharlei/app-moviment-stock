@@ -5,9 +5,10 @@ import Dashboard from './views/pages/Dashboard.vue'
 import Login from './views/pages/Login.vue'
 import NotFound from './views/pages/NotFound.vue'
 
-// import Product from './views/pages/Product/Index.vue'
-// import ProductNew from './views/pages/Product/New.vue'
-// import ProductEdit from './views/pages/Product/Edit.vue'
+import ProductNew from './views/pages/Product/New.vue'
+import ProductStockMovementIndex from './views/pages/ProductStockMovement/Index.vue'
+import ProductStockMovementShow from './views/pages/ProductStockMovement/Show.vue'
+import ProductStockMovementNew from './views/pages/ProductStockMovement/New.vue'
 
 Vue.use(VueRouter);
 
@@ -25,24 +26,30 @@ const routes = [
         component: Dashboard,
     },
 
-    // {
-    //   path: `/produtos`,
-    //   name: 'productIndex',
-    //   component: Product,
-    // },
+    {
+        path: `/produtos/cadastrar`,
+        name: 'productNew',
+        component: ProductNew,
+    },
 
-    // {
-    //   path: `/produtos/cadastrar`,
-    //   name: 'productNew',
-    //   component: ProductNew,
-    // },
+    {
+        path: `/sku/:sku/movimentos/estoque`,
+        name: 'skuStockMovements',
+        props: true,
+        component: ProductStockMovementShow,
+    },
 
-    // {
-    //   path: `/produtos/:id/editar`,
-    //   name: 'productEdit',
-    //   component: ProductEdit,
-    //   props: true,
-    // },
+    {
+        path: `/movimentos/estoque`,
+        name: 'stockMovements',
+        component: ProductStockMovementIndex,
+    },
+
+    {
+        path: `/movimentar/estoque`,
+        name: 'stockMovementNew',
+        component: ProductStockMovementNew,
+    },
 
     {
         path: `/*`,
@@ -50,9 +57,10 @@ const routes = [
         name: 'notFound',
     },
 ]
-.map(route => ({
-    ...route, path: `${basePath}${route.path}`}
-));
+    .map(route => ({
+        ...route, path: `${basePath}${route.path}`
+    }
+    ));
 
 const routers = new VueRouter({
     mode: 'history',
