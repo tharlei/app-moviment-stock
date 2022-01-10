@@ -3,6 +3,7 @@
 namespace App\Queries\ProductStockMovement;
 
 use App\Models\ProductStockMovement as ProductStockMovementModel;
+use App\Modules\ProductStockMovement\Queries\ListStockMovement\ListStockMovementData;
 use App\Modules\ProductStockMovement\Queries\ListStockMovement\ListStockMovementQuery;
 use App\Modules\ProductStockMovement\Queries\ListStockMovement\StockMovementData;
 use Carbon\Carbon;
@@ -18,18 +19,24 @@ class ListStockMovement implements ListStockMovementQuery
         $this->productStockMovementModel = $productStockMovementModel;
     }
 
-    public function execute(): Collection
+    public function execute(bool $paginator = false): ListStockMovementData
     {
         $productStockMovements = $this->productStockMovementModel
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        return $productStockMovements->map(function(ProductStockMovementModel $productStockMovement) {
-            return new StockMovementData(
-                $productStockMovement->amount,
-                $productStockMovement->is_add ? '+' : '-',
-                (new Carbon($productStockMovement->created_at))->format('d/m/Y H:i:s')
-            );
-        });
+        $productStockMovements = new ListStockMovementData(
+            $productStockMovements->map(function(ProductStockMovementModel $productStockMovement) {
+                return new StockMovementData(
+                    $productStockMovement->sku,
+                    $productStockMovement->amount,
+                    $productStockMovement->is_add ? '+' : '-',
+                    (new Carbon($productStockMovement->created_at))->format('d/m/Y H:i:s')
+                );
+            }),
+            $paginator ? $productStockMovements : null,
+        );
+
+        return $productStockMovements;
     }
 }
