@@ -9,7 +9,7 @@ Route::get('/', function() {
     return response()->json(config('app.name'));
 });
 
-Route::resource('/products', ProductController::class)->except('create', 'edit');
+Route::post('/products', [ProductController::class, 'store'])->name('product.store');
 
 Route::resource('/product-stock-movements', ProductStockMovementController::class)->only('index', 'store');
 Route::get('sku/{sku}/stock-movements', [SkuStockMovementController::class, 'show'])->name('sku.stock.movements.show');
