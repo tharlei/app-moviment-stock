@@ -1,7 +1,20 @@
 <template>
-  <div id="background">
-    <h1>:(</h1>
-    <p>
+  <div
+    id="background"
+    class="
+      h-screen
+      bg-cover
+      flex
+      justify-center
+      items-center
+      flex-col
+      w-full
+      relative
+    "
+  >
+    <h2 class="text-white z-50 text-5xl">:(</h2>
+
+    <p class="mt-10 text-white opacity-80 z-50 text-base">
       A página em questão não existe...será redirecionado de volta em 3
       segundos!
     </p>
@@ -19,31 +32,17 @@ export default {
 </script>
 
 <style scoped>
-#background h1 {
-  color: #fff;
-  font-size: 100px;
-  z-index: 999;
-  border-bottom: 1px solid #fff;
+#background h2 {
+  line-height: 1.5;
+  border-bottom: 0.5px solid #fff;
 }
 
 #background {
-  position: relative;
-  width: 100%;
-  height: 100vh;
   background: url("/assets/admin/images/bg.jpeg") no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
+
 #background::before {
+  @apply absolute top-0 left-0 right-0 bottom-0 opacity-60 bg-purple;
   content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(99, 8, 64, 0.8);
 }
 </style>
