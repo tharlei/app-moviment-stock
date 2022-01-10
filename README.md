@@ -51,7 +51,7 @@
 
 ## Deploy da Aplicação :dash:
 
-> Link do deploy da aplicação: https://app-ce4b9bea.tk
+> Link do deploy da aplicação: https://app-ce4b9bea.tk/admin
 
 ## Documentação
 
