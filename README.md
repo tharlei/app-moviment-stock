@@ -18,9 +18,20 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+:small_blue_diamond: [Deploy da Aplicação :dash:](#deploy-da-aplicacao-dash)
+
+:small_blue_diamond: [Documentação](#documentação)
 
 :small_blue_diamond: [Pré-requisitos](#pré-requisitos)
+
+:small_blue_diamond: [Como rodar a aplicação :arrow_forward:](#como-rodar-a-aplicacao)
+
+:small_blue_diamond: [Linguagens, dependências e libs utilizadas](#linguagens-dependencias-e-libs-utilizadas-books)
+
+:small_blue_diamond: [Desenvolvedor :octocat:](#desenvolvedor)
+
+:small_blue_diamond: [Licença](#licenca)
+
 
 ## Descrição do projeto 
 
@@ -41,6 +52,10 @@
 ## Deploy da Aplicação :dash:
 
 > Link do deploy da aplicação: https://app-ce4b9bea.tk
+
+## Documentação
+
+> Documentação no Postman: https://documenter.getpostman.com/view/4827382/UVXesxvU
 
 ## Pré-requisitos
 
