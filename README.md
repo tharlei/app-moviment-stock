@@ -73,13 +73,13 @@
 No terminal, clone o projeto: 
 
 ```
-git clone https://github.com/Tharlei/app-ce4b9bea
+git clone https://github.com/Tharlei/app-moviment-stock
 ```
 
 Ainda no terminal, entre na pasta:
 
 ```
-cd app-ce4b9bea
+cd app-moviment-stock
 ```
 
 Instale as dependências PHP:
